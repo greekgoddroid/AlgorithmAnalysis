@@ -15,5 +15,15 @@ public class Main {
         ComplexityAnalysis.logarithmicDivision(32);
         System.out.println();
         System.out.println("ACTIVITY 1 FINISHED");
+        System.out.println();
+        System.out.println("ACTIVITY 2 - ITERATION");
+        System.out.println("Factorial of 5: " + Iteration.factorial(5));
+        System.out.println("Array sum: " + Iteration.arraySum(numbers));
+        System.out.println("Array maximum: " + Iteration.arrayMaximum(numbers));
+        System.out.println();
+        System.out.println("ACTIVITY 2 - RECURSION");
+        System.out.println("Factorial of 5: " + Recursion.factorial(5));
+        System.out.println("Array sum: " + Recursion.arraySum(numbers, 0));
+        System.out.println("Array maximum: " + Recursion.arrayMaximum(numbers, 0));
     }
 }
