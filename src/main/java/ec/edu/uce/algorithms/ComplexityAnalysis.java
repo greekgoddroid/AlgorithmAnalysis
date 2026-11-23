@@ -28,4 +28,18 @@ public class ComplexityAnalysis {
         System.out.println("Comparisons: " + comparisons);
         System.out.println("Equal matches: " + equalNumbers);
     }
+
+    public static void logarithmicDivision(int number) {
+        int operations = 0;
+        if (number < 1) {
+            System.out.println("The number must be positive.");
+            return;
+        }
+        while (number > 1) {
+            number = number / 2;
+            operations = operations + 1;
+        }
+        System.out.println("Algorithm C - O(log n)");
+        System.out.println("Divisions: " + operations);
     }
+}

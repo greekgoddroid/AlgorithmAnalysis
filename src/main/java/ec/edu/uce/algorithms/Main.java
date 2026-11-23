@@ -5,5 +5,6 @@ public class Main {
         int[] numbers = {8, 3, 10, 2, 7};
         ComplexityAnalysis.linearSum(numbers);
         ComplexityAnalysis.quadraticComparison(numbers);
+        ComplexityAnalysis.logarithmicDivision(32);
     }
 }
