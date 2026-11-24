@@ -114,6 +114,16 @@ public class Main {
         printArray(bubbleNumbers);
         System.out.println();
         System.out.println("BUBBLE SORT TEST FINISHED");
+        System.out.println();
+        System.out.println("SELECTION SORT");
+        int[] selectionNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
+        System.out.print("Original array: ");
+        printArray(selectionNumbers);
+        Sorting.selectionSort(selectionNumbers);
+        System.out.print("Sorted array: ");
+        printArray(selectionNumbers);
+        System.out.println();
+        System.out.println("SELECTION SORT TEST FINISHED");
     }
     public static void printArray(int[] numbers) {
         System.out.print("[");
