@@ -2,6 +2,15 @@
 package ec.edu.uce.algorithms;
 public class Main {
     public static void main(String[] args) {
+        runComplexityAnalysis();
+        runIterationRecursion();
+        runSpecialCases();
+        runOperationCount();
+        Benchmark.compareIterationRecursion();
+        runSortingAlgorithms();
+        runSortingSpecialCases();
+    }
+    public static void runComplexityAnalysis() {
         int[] numbers = {8, 3, 10, 2, 7};
         System.out.println("ACTIVITY 1 - COMPLEXITY ANALYSIS");
         System.out.println();
@@ -16,6 +25,9 @@ public class Main {
         System.out.println();
         System.out.println("ACTIVITY 1 FINISHED");
         System.out.println();
+    }
+    public static void runIterationRecursion() {
+        int[] numbers = {8, 3, 10, 2, 7};
         System.out.println("ACTIVITY 2 - ITERATION");
         System.out.println("Factorial of 5: " + Iteration.factorial(5));
         System.out.println("Array sum: " + Iteration.arraySum(numbers));
@@ -25,10 +37,13 @@ public class Main {
         System.out.println("Factorial of 5: " + Recursion.factorial(5));
         System.out.println("Array sum: " + Recursion.arraySum(numbers, 0));
         System.out.println("Array maximum: " + Recursion.arrayMaximum(numbers, 0));
+        System.out.println();
+    }
+    public static void runSpecialCases() {
+        int[] numbers = {8, 3, 10, 2, 7};
         int[] emptyArray = {};
         int[] negativeNumbers = {-8, -3, -10, -2, -7};
         int[] singleNumber = {7};
-        System.out.println();
         System.out.println("ACTIVITY 2 - SPECIAL CASES");
         System.out.println();
         System.out.println("ITERATIVE TESTS");
@@ -87,6 +102,9 @@ public class Main {
         System.out.println();
         System.out.println("SPECIAL CASE TESTS FINISHED");
         System.out.println();
+    }
+    public static void runOperationCount() {
+        int[] numbers = {8, 3, 10, 2, 7};
         System.out.println("ACTIVITY 2 - OPERATION COUNT");
         System.out.println();
         System.out.println("ITERATIVE OPERATIONS");
@@ -101,49 +119,72 @@ public class Main {
         System.out.println();
         System.out.println("OPERATION COUNT FINISHED");
         System.out.println();
-        Benchmark.compareIterationRecursion();
+    }
+    public static void runSortingAlgorithms() {
+        int[] numbers = {45, 12, 90, 12, 3, 70, 45, 18};
+        int[] expected = {3, 12, 12, 18, 45, 45, 70, 90};
         System.out.println();
         System.out.println("ACTIVITY 3 - SORTING ALGORITHMS");
         System.out.println();
-        System.out.println("BUBBLE SORT");
-        int[] bubbleNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
+        testSortingAlgorithms(numbers, expected);
+        System.out.println("SORTING ALGORITHMS TEST FINISHED");
+    }
+    public static void runSortingSpecialCases() {
+        System.out.println();
+        System.out.println("ACTIVITY 3 - SORTING SPECIAL CASES");
+        System.out.println();
+        System.out.println("CASE 1 - EMPTY ARRAY");
+        testSortingAlgorithms(new int[]{}, new int[]{});
+        System.out.println("CASE 2 - SINGLE ELEMENT");
+        testSortingAlgorithms(new int[]{7}, new int[]{7});
+        System.out.println("CASE 3 - DUPLICATE ELEMENTS");
+        testSortingAlgorithms(new int[]{5, 2, 5, 2, 5}, new int[]{2, 2, 5, 5, 5});
+        System.out.println("CASE 4 - SORTED ARRAY");
+        testSortingAlgorithms(new int[]{1, 2, 3, 4, 5}, new int[]{1, 2, 3, 4, 5});
+        System.out.println("CASE 5 - REVERSE SORTED ARRAY");
+        testSortingAlgorithms(new int[]{5, 4, 3, 2, 1}, new int[]{1, 2, 3, 4, 5});
+        System.out.println("SORTING SPECIAL CASES FINISHED");
+    }
+    public static void testSortingAlgorithms(int[] numbers, int[] expected) {
+        int[] bubbleNumbers = numbers.clone();
+        int[] selectionNumbers = numbers.clone();
+        int[] insertionNumbers = numbers.clone();
+        int[] shellNumbers = numbers.clone();
         System.out.print("Original array: ");
-        printArray(bubbleNumbers);
-        Sorting.bubbleSort(bubbleNumbers);
+        printArray(numbers);
+        System.out.println();
+        long[] bubbleResults = Sorting.bubbleSort(bubbleNumbers);
+        printSortingResult("BUBBLE SORT", bubbleNumbers, expected, bubbleResults);
+        long[] selectionResults = Sorting.selectionSort(selectionNumbers);
+        printSortingResult("SELECTION SORT", selectionNumbers, expected, selectionResults);
+        long[] insertionResults = Sorting.insertionSort(insertionNumbers);
+        printSortingResult("INSERTION SORT", insertionNumbers, expected, insertionResults);
+        long[] shellResults = Sorting.shellSort(shellNumbers);
+        printSortingResult("SHELL SORT", shellNumbers, expected, shellResults);
+    }
+    public static void printSortingResult(String algorithm, int[] numbers, int[] expected, long[] results) {
+        System.out.println(algorithm);
+        System.out.println("Comparisons: " + results[0]);
+        System.out.println("Movements: " + results[1]);
         System.out.print("Sorted array: ");
-        printArray(bubbleNumbers);
+        printArray(numbers);
+        if (checkResult(numbers, expected)) {
+            System.out.println("Test result: PASSED");
+        } else {
+            System.out.println("Test result: FAILED");
+        }
         System.out.println();
-        System.out.println("BUBBLE SORT TEST FINISHED");
-        System.out.println();
-        System.out.println("SELECTION SORT");
-        int[] selectionNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
-        System.out.print("Original array: ");
-        printArray(selectionNumbers);
-        Sorting.selectionSort(selectionNumbers);
-        System.out.print("Sorted array: ");
-        printArray(selectionNumbers);
-        System.out.println();
-        System.out.println("SELECTION SORT TEST FINISHED");
-        System.out.println();
-        System.out.println("INSERTION SORT");
-        int[] insertionNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
-        System.out.print("Original array: ");
-        printArray(insertionNumbers);
-        Sorting.insertionSort(insertionNumbers);
-        System.out.print("Sorted array: ");
-        printArray(insertionNumbers);
-        System.out.println();
-        System.out.println("INSERTION SORT TEST FINISHED");
-        System.out.println();
-        System.out.println("SHELL SORT");
-        int[] shellNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
-        System.out.print("Original array: ");
-        printArray(shellNumbers);
-        Sorting.shellSort(shellNumbers);
-        System.out.print("Sorted array: ");
-        printArray(shellNumbers);
-        System.out.println();
-        System.out.println("SHELL SORT TEST FINISHED");
+    }
+    public static boolean checkResult(int[] numbers, int[] expected) {
+        if (numbers.length != expected.length) {
+            return false;
+        }
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i] != expected[i]) {
+                return false;
+            }
+        }
+        return true;
     }
     public static void printArray(int[] numbers) {
         System.out.print("[");

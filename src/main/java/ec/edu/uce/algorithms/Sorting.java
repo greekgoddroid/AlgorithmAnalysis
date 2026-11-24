@@ -1,9 +1,9 @@
 
 package ec.edu.uce.algorithms;
 public class Sorting {
-    public static void bubbleSort(int[] numbers) {
-        int comparisons = 0;
-        int swaps = 0;
+    public static long[] bubbleSort(int[] numbers) {
+        long comparisons = 0;
+        long movements = 0;
         for (int i = 0; i < numbers.length - 1; i++) {
             for (int j = 0; j < numbers.length - i - 1; j++) {
                 comparisons = comparisons + 1;
@@ -11,16 +11,15 @@ public class Sorting {
                     int temp = numbers[j];
                     numbers[j] = numbers[j + 1];
                     numbers[j + 1] = temp;
-                    swaps = swaps + 1;
+                    movements = movements + 2;
                 }
             }
         }
-        System.out.println("Comparisons: " + comparisons);
-        System.out.println("Swaps: " + swaps);
+        return new long[]{comparisons, movements};
     }
-    public static void selectionSort(int[] numbers) {
-        int comparisons = 0;
-        int swaps = 0;
+    public static long[] selectionSort(int[] numbers) {
+        long comparisons = 0;
+        long movements = 0;
         for (int i = 0; i < numbers.length - 1; i++) {
             int minimum = i;
             for (int j = i + 1; j < numbers.length; j++) {
@@ -33,15 +32,14 @@ public class Sorting {
                 int temp = numbers[i];
                 numbers[i] = numbers[minimum];
                 numbers[minimum] = temp;
-                swaps = swaps + 1;
+                movements = movements + 2;
             }
         }
-        System.out.println("Comparisons: " + comparisons);
-        System.out.println("Swaps: " + swaps);
+        return new long[]{comparisons, movements};
     }
-    public static void insertionSort(int[] numbers) {
-        int comparisons = 0;
-        int movements = 0;
+    public static long[] insertionSort(int[] numbers) {
+        long comparisons = 0;
+        long movements = 0;
         for (int i = 1; i < numbers.length; i++) {
             int key = numbers[i];
             int j = i - 1;
@@ -58,12 +56,11 @@ public class Sorting {
             numbers[j + 1] = key;
             movements = movements + 1;
         }
-        System.out.println("Comparisons: " + comparisons);
-        System.out.println("Movements: " + movements);
+        return new long[]{comparisons, movements};
     }
-    public static void shellSort(int[] numbers) {
-        int comparisons = 0;
-        int movements = 0;
+    public static long[] shellSort(int[] numbers) {
+        long comparisons = 0;
+        long movements = 0;
         for (int gap = numbers.length / 2; gap > 0; gap = gap / 2) {
             for (int i = gap; i < numbers.length; i++) {
                 int temp = numbers[i];
@@ -82,7 +79,6 @@ public class Sorting {
                 movements = movements + 1;
             }
         }
-        System.out.println("Comparisons: " + comparisons);
-        System.out.println("Movements: " + movements);
+        return new long[]{comparisons, movements};
     }
 }
