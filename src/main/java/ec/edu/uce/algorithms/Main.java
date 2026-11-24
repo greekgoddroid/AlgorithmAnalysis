@@ -1,5 +1,5 @@
-package ec.edu.uce.algorithms;
 
+package ec.edu.uce.algorithms;
 public class Main {
     public static void main(String[] args) {
         int[] numbers = {8, 3, 10, 2, 7};
@@ -86,5 +86,19 @@ public class Main {
         }
         System.out.println();
         System.out.println("SPECIAL CASE TESTS FINISHED");
+        System.out.println();
+        System.out.println("ACTIVITY 2 - OPERATION COUNT");
+        System.out.println();
+        System.out.println("ITERATIVE OPERATIONS");
+        System.out.println("Factorial multiplications: " + Iteration.factorialOperations(5));
+        System.out.println("Array sum additions: " + Iteration.sumOperations(numbers));
+        System.out.println("Array maximum comparisons: " + Iteration.maximumOperations(numbers));
+        System.out.println();
+        System.out.println("RECURSIVE OPERATIONS");
+        System.out.println("Factorial multiplications: " + Recursion.factorialOperations(5));
+        System.out.println("Array sum additions: " + Recursion.sumOperations(numbers));
+        System.out.println("Array maximum comparisons: " + Recursion.maximumOperations(numbers));
+        System.out.println();
+        System.out.println("OPERATION COUNT FINISHED");
     }
 }
