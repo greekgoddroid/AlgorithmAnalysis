@@ -25,5 +25,66 @@ public class Main {
         System.out.println("Factorial of 5: " + Recursion.factorial(5));
         System.out.println("Array sum: " + Recursion.arraySum(numbers, 0));
         System.out.println("Array maximum: " + Recursion.arrayMaximum(numbers, 0));
+        int[] emptyArray = {};
+        int[] negativeNumbers = {-8, -3, -10, -2, -7};
+        int[] singleNumber = {7};
+        System.out.println();
+        System.out.println("ACTIVITY 2 - SPECIAL CASES");
+        System.out.println();
+        System.out.println("ITERATIVE TESTS");
+        System.out.println("Factorial of 0: " + Iteration.factorial(0));
+        System.out.println("Factorial of 1: " + Iteration.factorial(1));
+        System.out.println("Empty array sum: " + Iteration.arraySum(emptyArray));
+        System.out.println("Negative array maximum: " + Iteration.arrayMaximum(negativeNumbers));
+        System.out.println("Single element maximum: " + Iteration.arrayMaximum(singleNumber));
+        try {
+            Iteration.factorial(-5);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Factorial of -5: " + e.getMessage());
+        }
+        try {
+            Iteration.factorial(21);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Factorial of 21: " + e.getMessage());
+        }
+        try {
+            Iteration.arrayMaximum(emptyArray);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Empty array maximum: " + e.getMessage());
+        }
+        System.out.println();
+        System.out.println("RECURSIVE TESTS");
+        System.out.println("Factorial of 0: " + Recursion.factorial(0));
+        System.out.println("Factorial of 1: " + Recursion.factorial(1));
+        System.out.println("Empty array sum: " + Recursion.arraySum(emptyArray, 0));
+        System.out.println("Negative array maximum: " + Recursion.arrayMaximum(negativeNumbers, 0));
+        System.out.println("Single element maximum: " + Recursion.arrayMaximum(singleNumber, 0));
+        try {
+            Recursion.factorial(-5);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Factorial of -5: " + e.getMessage());
+        }
+        try {
+            Recursion.factorial(21);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Factorial of 21: " + e.getMessage());
+        }
+        try {
+            Recursion.arrayMaximum(emptyArray, 0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Empty array maximum: " + e.getMessage());
+        }
+        try {
+            Recursion.arraySum(numbers, -1);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid sum index: " + e.getMessage());
+        }
+        try {
+            Recursion.arrayMaximum(numbers, numbers.length);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid maximum index: " + e.getMessage());
+        }
+        System.out.println();
+        System.out.println("SPECIAL CASE TESTS FINISHED");
     }
 }

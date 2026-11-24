@@ -1,10 +1,10 @@
+
 package ec.edu.uce.algorithms;
 
 public class Recursion {
     public static long factorial(int number) {
         if (number < 0 || number > 20) {
-            System.out.println("Invalid number for factorial.");
-            return -1;
+            throw new IllegalArgumentException("Invalid number for factorial.");
         }
         if (number == 0 || number == 1) {
             return 1;
@@ -12,6 +12,9 @@ public class Recursion {
         return number * factorial(number - 1);
     }
     public static int arraySum(int[] numbers, int index) {
+        if (index < 0 || index > numbers.length) {
+            throw new IllegalArgumentException("Invalid index.");
+        }
         if (index == numbers.length) {
             return 0;
         }
@@ -20,6 +23,9 @@ public class Recursion {
     public static int arrayMaximum(int[] numbers, int index) {
         if (numbers.length == 0) {
             throw new IllegalArgumentException("The array is empty.");
+        }
+        if (index < 0 || index >= numbers.length) {
+            throw new IllegalArgumentException("Invalid index.");
         }
         if (index == numbers.length - 1) {
             return numbers[index];
