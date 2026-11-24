@@ -102,5 +102,27 @@ public class Main {
         System.out.println("OPERATION COUNT FINISHED");
         System.out.println();
         Benchmark.compareIterationRecursion();
+        System.out.println();
+        System.out.println("ACTIVITY 3 - SORTING ALGORITHMS");
+        System.out.println();
+        System.out.println("BUBBLE SORT");
+        int[] bubbleNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
+        System.out.print("Original array: ");
+        printArray(bubbleNumbers);
+        Sorting.bubbleSort(bubbleNumbers);
+        System.out.print("Sorted array: ");
+        printArray(bubbleNumbers);
+        System.out.println();
+        System.out.println("BUBBLE SORT TEST FINISHED");
+    }
+    public static void printArray(int[] numbers) {
+        System.out.print("[");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i]);
+            if (i < numbers.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
     }
 }
