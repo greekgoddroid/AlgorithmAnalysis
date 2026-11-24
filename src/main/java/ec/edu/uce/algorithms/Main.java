@@ -3,6 +3,7 @@ package ec.edu.uce.algorithms;
 public class Main {
     public static void main(String[] args) {
         runComplexityAnalysis();
+        ComplexityAnalysis.runComplexityTests();
         runIterationRecursion();
         runSpecialCases();
         runOperationCount();
