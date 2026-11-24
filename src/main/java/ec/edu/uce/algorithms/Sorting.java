@@ -39,4 +39,26 @@ public class Sorting {
         System.out.println("Comparisons: " + comparisons);
         System.out.println("Swaps: " + swaps);
     }
+    public static void insertionSort(int[] numbers) {
+        int comparisons = 0;
+        int movements = 0;
+        for (int i = 1; i < numbers.length; i++) {
+            int key = numbers[i];
+            int j = i - 1;
+            while (j >= 0) {
+                comparisons = comparisons + 1;
+                if (numbers[j] > key) {
+                    numbers[j + 1] = numbers[j];
+                    movements = movements + 1;
+                    j = j - 1;
+                } else {
+                    break;
+                }
+            }
+            numbers[j + 1] = key;
+            movements = movements + 1;
+        }
+        System.out.println("Comparisons: " + comparisons);
+        System.out.println("Movements: " + movements);
+    }
 }

@@ -124,6 +124,16 @@ public class Main {
         printArray(selectionNumbers);
         System.out.println();
         System.out.println("SELECTION SORT TEST FINISHED");
+        System.out.println();
+        System.out.println("INSERTION SORT");
+        int[] insertionNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
+        System.out.print("Original array: ");
+        printArray(insertionNumbers);
+        Sorting.insertionSort(insertionNumbers);
+        System.out.print("Sorted array: ");
+        printArray(insertionNumbers);
+        System.out.println();
+        System.out.println("INSERTION SORT TEST FINISHED");
     }
     public static void printArray(int[] numbers) {
         System.out.print("[");
