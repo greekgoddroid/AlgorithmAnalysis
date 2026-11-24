@@ -2,6 +2,9 @@
 package ec.edu.uce.algorithms;
 import java.util.Random;
 import java.util.Locale;
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.IOException;
 public class Benchmark {
     private static volatile long result;
     public static void compareIterationRecursion() {
@@ -135,7 +138,7 @@ public class Benchmark {
                 numbers[i] = i + 1;
             }
         }
-        if (type.equals("Nearly sorted")) {
+        if (type.equals("Nearly sorted") && size > 1) {
             int swaps = Math.max(1, size / 20);
             for (int i = 0; i < swaps; i++) {
                 int first = random.nextInt(size - 1);
@@ -188,6 +191,8 @@ public class Benchmark {
         int repetitions = 3;
         int totalExecutions = 0;
         int totalRecords = 0;
+        StringBuilder csv = new StringBuilder();
+        csv.append("Algorithm,Size,Data type,Comparisons,Movements,Average time (ms)\n");
         warmUpSorting();
         System.out.println();
         System.out.println("ACTIVITY 4 - EXPERIMENTAL ANALYSIS");
@@ -222,6 +227,7 @@ public class Benchmark {
                     double averageComparisons = totalComparisons / (double) repetitions;
                     double averageMovements = totalMovements / (double) repetitions;
                     System.out.printf(Locale.US, "%-17s %8d %-15s %15.0f %15.0f %15.6f%n", algorithms[k], sizes[i], types[j], averageComparisons, averageMovements, averageTime);
+                    csv.append(String.format(Locale.US, "%s,%d,%s,%.0f,%.0f,%.6f%n", algorithms[k], sizes[i], types[j], averageComparisons, averageMovements, averageTime));
                     totalRecords = totalRecords + 1;
                 }
             }
@@ -231,5 +237,25 @@ public class Benchmark {
         System.out.println("Total records: " + totalRecords);
         System.out.println("All experimental sorting tests passed.");
         System.out.println("EXPERIMENTAL ANALYSIS FINISHED");
+        exportResults(csv.toString());
+    }
+    public static void exportResults(String content) {
+        File directory = new File("Results/boards");
+        if (!directory.exists() && !directory.mkdirs()) {
+            throw new IllegalStateException("Could not create the results directory.");
+        }
+        File file = new File(directory, "sorting_results.csv");
+        try (PrintWriter writer = new PrintWriter(file)) {
+            writer.print(content);
+            if (writer.checkError()) {
+                throw new IOException("Could not write the results.");
+            }
+            System.out.println();
+            System.out.println("CSV EXPORT FINISHED");
+            System.out.println("File: " + file.getAbsolutePath());
+            System.out.println("Results exported successfully.");
+        } catch (IOException e) {
+            throw new IllegalStateException("Error exporting results: " + e.getMessage(), e);
+        }
     }
 }
