@@ -1,0 +1,389 @@
+C:\Users\USUARIO\.jdks\openjdk-27.0.1.0.3\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2026.2.3\lib\idea_rt.jar=54429" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\USUARIO\IdeaProjects\AlgorithmAnalysis\target\classes ec.edu.uce.algorithms.Main
+ACTIVITY 1 - COMPLEXITY ANALYSIS
+
+ALGORITHM A - LINEAR
+Sum: 30
+Operations: 5
+
+ALGORITHM B - QUADRATIC
+Algorithm B - O(n^2)
+Input size: 5
+Comparisons: 25
+Equal matches: 5
+
+ALGORITHM C - LOGARITHMIC
+Algorithm C - O(log n)
+Divisions: 5
+
+ACTIVITY 1 FINISHED
+
+
+ACTIVITY 1 - EXPERIMENTAL COMPLEXITY ANALYSIS
+Repetitions: 3
+
+Algorithm               Size     Theoretical    Experimental  Avg. time (ns)
+Linear                    10              10              10          42.200
+Linear                   100             100             100          27.133
+Linear                  1000            1000            1000          84.700
+Linear                 10000           10000           10000         362.433
+Quadratic                 10             100             100         333.333
+Quadratic                100           10000           10000        2900.000
+Quadratic               1000         1000000         1000000      224033.333
+Quadratic              10000       100000000       100000000    20934833.333
+Logarithmic                2               1               1          15.331
+Logarithmic                8               3               3           6.830
+Logarithmic               32               5               5           3.736
+Logarithmic              128               7               7           7.128
+Logarithmic             1024              10              10           5.025
+Logarithmic          1048576              20              20           9.222
+
+All complexity operation counts matched.
+EXPERIMENTAL COMPLEXITY ANALYSIS FINISHED
+
+ACTIVITY 2 - ITERATION
+Factorial of 5: 120
+Array sum: 30
+Array maximum: 10
+
+ACTIVITY 2 - RECURSION
+Factorial of 5: 120
+Array sum: 30
+Array maximum: 10
+
+ACTIVITY 2 - SPECIAL CASES
+
+ITERATIVE TESTS
+Factorial of 0: 1
+Factorial of 1: 1
+Empty array sum: 0
+Negative array maximum: -2
+Single element maximum: 7
+Factorial of -5: Invalid number for factorial.
+Factorial of 21: Invalid number for factorial.
+Empty array maximum: The array is empty.
+
+RECURSIVE TESTS
+Factorial of 0: 1
+Factorial of 1: 1
+Empty array sum: 0
+Negative array maximum: -2
+Single element maximum: 7
+Factorial of -5: Invalid number for factorial.
+Factorial of 21: Invalid number for factorial.
+Empty array maximum: The array is empty.
+Invalid sum index: Invalid index.
+Invalid maximum index: Invalid index.
+
+SPECIAL CASE TESTS FINISHED
+
+ACTIVITY 2 - OPERATION COUNT
+
+ITERATIVE OPERATIONS
+Factorial multiplications: 5
+Array sum additions: 5
+Array maximum comparisons: 4
+
+RECURSIVE OPERATIONS
+Factorial multiplications: 4
+Array sum additions: 5
+Array maximum comparisons: 4
+
+OPERATION COUNT FINISHED
+
+ACTIVITY 2 - EXECUTION TIME
+Repetitions: 100000
+
+Iterative factorial: 29.664 ns
+Recursive factorial: 13.207 ns
+Iterative array sum: 7.357 ns
+Recursive array sum: 30.099 ns
+Iterative array maximum: 9.6 ns
+Recursive array maximum: 13.347 ns
+
+EXECUTION TIME TEST FINISHED
+
+ACTIVITY 3 - SORTING ALGORITHMS
+
+Original array: [45, 12, 90, 12, 3, 70, 45, 18]
+
+BUBBLE SORT
+Comparisons: 28
+Movements: 28
+Sorted array: [3, 12, 12, 18, 45, 45, 70, 90]
+Test result: PASSED
+
+SELECTION SORT
+Comparisons: 28
+Movements: 8
+Sorted array: [3, 12, 12, 18, 45, 45, 70, 90]
+Test result: PASSED
+
+INSERTION SORT
+Comparisons: 19
+Movements: 21
+Sorted array: [3, 12, 12, 18, 45, 45, 70, 90]
+Test result: PASSED
+
+SHELL SORT
+Comparisons: 22
+Movements: 24
+Sorted array: [3, 12, 12, 18, 45, 45, 70, 90]
+Test result: PASSED
+
+SORTING ALGORITHMS TEST FINISHED
+
+ACTIVITY 3 - SORTING SPECIAL CASES
+
+CASE 1 - EMPTY ARRAY
+Original array: []
+
+BUBBLE SORT
+Comparisons: 0
+Movements: 0
+Sorted array: []
+Test result: PASSED
+
+SELECTION SORT
+Comparisons: 0
+Movements: 0
+Sorted array: []
+Test result: PASSED
+
+INSERTION SORT
+Comparisons: 0
+Movements: 0
+Sorted array: []
+Test result: PASSED
+
+SHELL SORT
+Comparisons: 0
+Movements: 0
+Sorted array: []
+Test result: PASSED
+
+CASE 2 - SINGLE ELEMENT
+Original array: [7]
+
+BUBBLE SORT
+Comparisons: 0
+Movements: 0
+Sorted array: [7]
+Test result: PASSED
+
+SELECTION SORT
+Comparisons: 0
+Movements: 0
+Sorted array: [7]
+Test result: PASSED
+
+INSERTION SORT
+Comparisons: 0
+Movements: 0
+Sorted array: [7]
+Test result: PASSED
+
+SHELL SORT
+Comparisons: 0
+Movements: 0
+Sorted array: [7]
+Test result: PASSED
+
+CASE 3 - DUPLICATE ELEMENTS
+Original array: [5, 2, 5, 2, 5]
+
+BUBBLE SORT
+Comparisons: 10
+Movements: 6
+Sorted array: [2, 2, 5, 5, 5]
+Test result: PASSED
+
+SELECTION SORT
+Comparisons: 10
+Movements: 4
+Sorted array: [2, 2, 5, 5, 5]
+Test result: PASSED
+
+INSERTION SORT
+Comparisons: 6
+Movements: 7
+Sorted array: [2, 2, 5, 5, 5]
+Test result: PASSED
+
+SHELL SORT
+Comparisons: 9
+Movements: 10
+Sorted array: [2, 2, 5, 5, 5]
+Test result: PASSED
+
+CASE 4 - SORTED ARRAY
+Original array: [1, 2, 3, 4, 5]
+
+BUBBLE SORT
+Comparisons: 10
+Movements: 0
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+SELECTION SORT
+Comparisons: 10
+Movements: 0
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+INSERTION SORT
+Comparisons: 4
+Movements: 4
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+SHELL SORT
+Comparisons: 7
+Movements: 7
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+CASE 5 - REVERSE SORTED ARRAY
+Original array: [5, 4, 3, 2, 1]
+
+BUBBLE SORT
+Comparisons: 10
+Movements: 20
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+SELECTION SORT
+Comparisons: 10
+Movements: 4
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+INSERTION SORT
+Comparisons: 10
+Movements: 14
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+SHELL SORT
+Comparisons: 8
+Movements: 11
+Sorted array: [1, 2, 3, 4, 5]
+Test result: PASSED
+
+SORTING SPECIAL CASES FINISHED
+
+ACTIVITY 3 - SORTING EXECUTION TIME
+Array size: 8
+Repetitions: 10000
+
+Bubble Sort: 84.13 ns
+Selection Sort: 97.35 ns
+Insertion Sort: 71.99 ns
+Shell Sort: 81.77 ns
+
+AVERAGE EXECUTION TIME IN MILLISECONDS
+Bubble Sort: 8.413E-5 ms
+Selection Sort: 9.735E-5 ms
+Insertion Sort: 7.199E-5 ms
+Shell Sort: 8.177E-5 ms
+
+SORTING EXECUTION TIME TEST FINISHED
+
+ACTIVITY 4 - EXPERIMENTAL ANALYSIS
+Java version: 27.0.1.0.3
+Operating system: Windows 11
+Architecture: amd64
+Available processors: 16
+Repetitions per test: 3
+
+Algorithm             Size Data type           Comparisons       Movements  Avg. time (ms)
+Bubble Sort             10 Ascending                    45               0        0.000200
+Selection Sort          10 Ascending                    45               0        0.000233
+Insertion Sort          10 Ascending                     9               9        0.000233
+Shell Sort              10 Ascending                    22              22        0.000233
+Bubble Sort             10 Descending                   45              90        0.000267
+Selection Sort          10 Descending                   45              10        0.000333
+Insertion Sort          10 Descending                   45              54        0.000267
+Shell Sort              10 Descending                   27              35        0.000300
+Bubble Sort             10 Random                       45              42        0.000267
+Selection Sort          10 Random                       45              14        0.000333
+Insertion Sort          10 Random                       29              30        0.000333
+Shell Sort              10 Random                       33              39        0.000367
+Bubble Sort             10 Duplicates                   45              40        0.000367
+Selection Sort          10 Duplicates                   45              14        0.000233
+Insertion Sort          10 Duplicates                   28              29        0.000267
+Shell Sort              10 Duplicates                   26              30        0.000333
+Bubble Sort             10 Nearly sorted                45               2        0.000233
+Selection Sort          10 Nearly sorted                45               2        0.000200
+Insertion Sort          10 Nearly sorted                10              10        0.000267
+Shell Sort              10 Nearly sorted                23              23        0.000300
+Bubble Sort            100 Ascending                  4950               0        0.004667
+Selection Sort         100 Ascending                  4950               0        0.007000
+Insertion Sort         100 Ascending                    99              99        0.000400
+Shell Sort             100 Ascending                   503             503        0.000833
+Bubble Sort            100 Descending                 4950            9900        0.007433
+Selection Sort         100 Descending                 4950             100        0.007333
+Insertion Sort         100 Descending                 4950            5049        0.003567
+Shell Sort             100 Descending                  668             763        0.001300
+Bubble Sort            100 Random                     4950            4892        0.007933
+Selection Sort         100 Random                     4950             198        0.007133
+Insertion Sort         100 Random                     2541            2545        0.003567
+Shell Sort             100 Random                      844             888        0.002500
+Bubble Sort            100 Duplicates                 4950            4238        0.010800
+Selection Sort         100 Duplicates                 4950             158        0.007500
+Insertion Sort         100 Duplicates                 2218            2218        0.001900
+Shell Sort             100 Duplicates                  681             720        0.001600
+Bubble Sort            100 Nearly sorted              4950              10        0.003000
+Selection Sort         100 Nearly sorted              4950              10        0.007267
+Insertion Sort         100 Nearly sorted               104             104        0.000433
+Shell Sort             100 Nearly sorted               508             508        0.001000
+Bubble Sort           1000 Ascending                499500               0        0.211833
+Selection Sort        1000 Ascending                499500               0        0.717267
+Insertion Sort        1000 Ascending                   999             999        0.001200
+Shell Sort            1000 Ascending                  8006            8006        0.005200
+Bubble Sort           1000 Descending               499500          999000        0.731200
+Selection Sort        1000 Descending               499500            1000        0.740567
+Insertion Sort        1000 Descending               499500          500499        0.518133
+Shell Sort            1000 Descending                11716           12706        0.018400
+Bubble Sort           1000 Random                   499500          493446        0.552667
+Selection Sort        1000 Random                   499500            1988        0.711333
+Insertion Sort        1000 Random                   247718          247722        0.170167
+Shell Sort            1000 Random                    14815           15297        0.029300
+Bubble Sort           1000 Duplicates               499500          426828        0.540400
+Selection Sort        1000 Duplicates               499500            1590        0.738700
+Insertion Sort        1000 Duplicates               214410          214413        0.237433
+Shell Sort            1000 Duplicates                 9636            9997        0.013933
+Bubble Sort           1000 Nearly sorted            499500              92        0.277200
+Selection Sort        1000 Nearly sorted            499500              88        0.737967
+Insertion Sort        1000 Nearly sorted              1045            1045        0.001933
+Shell Sort            1000 Nearly sorted              8052            8052        0.005967
+Bubble Sort          10000 Ascending              49995000               0       27.003700
+Selection Sort       10000 Ascending              49995000               0       74.694067
+Insertion Sort       10000 Ascending                  9999            9999        0.010533
+Shell Sort           10000 Ascending                120005          120005        0.170433
+Bubble Sort          10000 Descending             49995000        99990000       71.944067
+Selection Sort       10000 Descending             49995000           10000       70.275367
+Insertion Sort       10000 Descending             49995000        50004999       31.020567
+Shell Sort           10000 Descending               172578          182565        0.117267
+Bubble Sort          10000 Random                 49995000        50004770       42.632200
+Selection Sort       10000 Random                 49995000           19974       69.942067
+Insertion Sort       10000 Random                 25012374        25012384       15.081800
+Shell Sort           10000 Random                   264667          269712        0.580033
+Bubble Sort          10000 Duplicates             49995000        39846768       36.014333
+Selection Sort       10000 Duplicates             49995000           15930       70.512033
+Insertion Sort       10000 Duplicates             19933381        19933383       12.524133
+Shell Sort           10000 Duplicates               139187          142598        0.186800
+Bubble Sort          10000 Nearly sorted          49995000             948       20.674000
+Selection Sort       10000 Nearly sorted          49995000             948       70.895267
+Insertion Sort       10000 Nearly sorted             10473           10473        0.014933
+Shell Sort           10000 Nearly sorted            120479          120479        0.077967
+
+Total executions: 240
+Total records: 80
+All experimental sorting tests passed.
+EXPERIMENTAL ANALYSIS FINISHED
+
+CSV EXPORT FINISHED
+File: C:\Users\USUARIO\IdeaProjects\AlgorithmAnalysis\Results\boards\sorting_results.csv
+Results exported successfully.
+
+Process finished with exit code 0

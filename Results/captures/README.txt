@@ -1,0 +1,1 @@
+These images are reconstructed console transcripts, not original IntelliJ screenshots. All output lines are taken from the supplied execution log. The Activity 4 timing results are from this execution and differ from the earlier CSV used for the charts.
