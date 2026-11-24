@@ -100,5 +100,7 @@ public class Main {
         System.out.println("Array maximum comparisons: " + Recursion.maximumOperations(numbers));
         System.out.println();
         System.out.println("OPERATION COUNT FINISHED");
+        System.out.println();
+        Benchmark.compareIterationRecursion();
     }
 }
