@@ -10,6 +10,7 @@ public class Main {
         runSortingAlgorithms();
         runSortingSpecialCases();
         Benchmark.compareSortingAlgorithms();
+        Benchmark.runExperimentalAnalysis();
     }
     public static void runComplexityAnalysis() {
         int[] numbers = {8, 3, 10, 2, 7};

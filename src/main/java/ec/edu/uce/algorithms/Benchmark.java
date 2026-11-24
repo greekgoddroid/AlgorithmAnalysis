@@ -1,4 +1,7 @@
+
 package ec.edu.uce.algorithms;
+import java.util.Random;
+import java.util.Locale;
 public class Benchmark {
     private static volatile long result;
     public static void compareIterationRecursion() {
@@ -115,5 +118,118 @@ public class Benchmark {
         System.out.println("Shell Sort: " + shellTime / (repetitions * 1000000.0) + " ms");
         System.out.println();
         System.out.println("SORTING EXECUTION TIME TEST FINISHED");
+    }
+    public static int[] generateArray(int size, String type) {
+        int[] numbers = new int[size];
+        Random random = new Random(42 + size);
+        for (int i = 0; i < size; i++) {
+            if (type.equals("Ascending")) {
+                numbers[i] = i + 1;
+            } else if (type.equals("Descending")) {
+                numbers[i] = size - i;
+            } else if (type.equals("Random")) {
+                numbers[i] = random.nextInt(size * 10);
+            } else if (type.equals("Duplicates")) {
+                numbers[i] = random.nextInt(5);
+            } else if (type.equals("Nearly sorted")) {
+                numbers[i] = i + 1;
+            }
+        }
+        if (type.equals("Nearly sorted")) {
+            int swaps = Math.max(1, size / 20);
+            for (int i = 0; i < swaps; i++) {
+                int first = random.nextInt(size - 1);
+                int second = first + 1;
+                int temp = numbers[first];
+                numbers[first] = numbers[second];
+                numbers[second] = temp;
+            }
+        }
+        return numbers;
+    }
+    public static long[] executeSorting(String algorithm, int[] numbers) {
+        if (algorithm.equals("Bubble Sort")) {
+            return Sorting.bubbleSort(numbers);
+        } else if (algorithm.equals("Selection Sort")) {
+            return Sorting.selectionSort(numbers);
+        } else if (algorithm.equals("Insertion Sort")) {
+            return Sorting.insertionSort(numbers);
+        } else if (algorithm.equals("Shell Sort")) {
+            return Sorting.shellSort(numbers);
+        }
+        throw new IllegalArgumentException("Invalid sorting algorithm.");
+    }
+    public static boolean isSorted(int[] numbers) {
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i - 1] > numbers[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void warmUpSorting() {
+        String[] algorithms = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Shell Sort"};
+        String[] types = {"Ascending", "Descending", "Random", "Duplicates", "Nearly sorted"};
+        for (int i = 0; i < types.length; i++) {
+            int[] numbers = generateArray(100, types[i]);
+            for (int j = 0; j < algorithms.length; j++) {
+                for (int k = 0; k < 200; k++) {
+                    int[] copy = numbers.clone();
+                    long[] metrics = executeSorting(algorithms[j], copy);
+                    result = metrics[0] + metrics[1] + copy[0];
+                }
+            }
+        }
+    }
+    public static void runExperimentalAnalysis() {
+        int[] sizes = {10, 100, 1000, 10000};
+        String[] types = {"Ascending", "Descending", "Random", "Duplicates", "Nearly sorted"};
+        String[] algorithms = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Shell Sort"};
+        int repetitions = 3;
+        int totalExecutions = 0;
+        int totalRecords = 0;
+        warmUpSorting();
+        System.out.println();
+        System.out.println("ACTIVITY 4 - EXPERIMENTAL ANALYSIS");
+        System.out.println("Java version: " + System.getProperty("java.version"));
+        System.out.println("Operating system: " + System.getProperty("os.name"));
+        System.out.println("Architecture: " + System.getProperty("os.arch"));
+        System.out.println("Available processors: " + Runtime.getRuntime().availableProcessors());
+        System.out.println("Repetitions per test: " + repetitions);
+        System.out.println();
+        System.out.printf("%-17s %8s %-15s %15s %15s %15s%n", "Algorithm", "Size", "Data type", "Comparisons", "Movements", "Avg. time (ms)");
+        for (int i = 0; i < sizes.length; i++) {
+            for (int j = 0; j < types.length; j++) {
+                int[] original = generateArray(sizes[i], types[j]);
+                for (int k = 0; k < algorithms.length; k++) {
+                    long totalTime = 0;
+                    long totalComparisons = 0;
+                    long totalMovements = 0;
+                    for (int r = 0; r < repetitions; r++) {
+                        int[] numbers = original.clone();
+                        long start = System.nanoTime();
+                        long[] metrics = executeSorting(algorithms[k], numbers);
+                        long end = System.nanoTime();
+                        if (!isSorted(numbers)) {
+                            throw new IllegalStateException("Sorting test failed.");
+                        }
+                        totalTime = totalTime + (end - start);
+                        totalComparisons = totalComparisons + metrics[0];
+                        totalMovements = totalMovements + metrics[1];
+                        totalExecutions = totalExecutions + 1;
+                    }
+                    double averageTime = totalTime / (repetitions * 1000000.0);
+                    double averageComparisons = totalComparisons / (double) repetitions;
+                    double averageMovements = totalMovements / (double) repetitions;
+                    System.out.printf(Locale.US, "%-17s %8d %-15s %15.0f %15.0f %15.6f%n", algorithms[k], sizes[i], types[j], averageComparisons, averageMovements, averageTime);
+                    totalRecords = totalRecords + 1;
+                }
+            }
+        }
+        System.out.println();
+        System.out.println("Total executions: " + totalExecutions);
+        System.out.println("Total records: " + totalRecords);
+        System.out.println("All experimental sorting tests passed.");
+        System.out.println("EXPERIMENTAL ANALYSIS FINISHED");
     }
 }
