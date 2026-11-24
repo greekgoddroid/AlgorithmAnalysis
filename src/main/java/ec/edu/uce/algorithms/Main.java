@@ -9,6 +9,7 @@ public class Main {
         Benchmark.compareIterationRecursion();
         runSortingAlgorithms();
         runSortingSpecialCases();
+        Benchmark.compareSortingAlgorithms();
     }
     public static void runComplexityAnalysis() {
         int[] numbers = {8, 3, 10, 2, 7};

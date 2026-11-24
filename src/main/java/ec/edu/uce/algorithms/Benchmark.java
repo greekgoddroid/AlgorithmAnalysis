@@ -1,5 +1,4 @@
 package ec.edu.uce.algorithms;
-
 public class Benchmark {
     private static volatile long result;
     public static void compareIterationRecursion() {
@@ -57,5 +56,64 @@ public class Benchmark {
         System.out.println("Recursive array maximum: " + (end - start) / (double) repetitions + " ns");
         System.out.println();
         System.out.println("EXECUTION TIME TEST FINISHED");
+    }
+    public static void compareSortingAlgorithms() {
+        int[] numbers = {45, 12, 90, 12, 3, 70, 45, 18};
+        int repetitions = 10000;
+        long bubbleTime = 0;
+        long selectionTime = 0;
+        long insertionTime = 0;
+        long shellTime = 0;
+        long start;
+        long end;
+        for (int i = 0; i < 10000; i++) {
+            Sorting.bubbleSort(numbers.clone());
+            Sorting.selectionSort(numbers.clone());
+            Sorting.insertionSort(numbers.clone());
+            Sorting.shellSort(numbers.clone());
+        }
+        for (int i = 0; i < repetitions; i++) {
+            int[] bubbleNumbers = numbers.clone();
+            int[] selectionNumbers = numbers.clone();
+            int[] insertionNumbers = numbers.clone();
+            int[] shellNumbers = numbers.clone();
+            start = System.nanoTime();
+            long[] bubbleResults = Sorting.bubbleSort(bubbleNumbers);
+            end = System.nanoTime();
+            bubbleTime = bubbleTime + (end - start);
+            result = bubbleResults[0] + bubbleResults[1] + bubbleNumbers[0];
+            start = System.nanoTime();
+            long[] selectionResults = Sorting.selectionSort(selectionNumbers);
+            end = System.nanoTime();
+            selectionTime = selectionTime + (end - start);
+            result = selectionResults[0] + selectionResults[1] + selectionNumbers[0];
+            start = System.nanoTime();
+            long[] insertionResults = Sorting.insertionSort(insertionNumbers);
+            end = System.nanoTime();
+            insertionTime = insertionTime + (end - start);
+            result = insertionResults[0] + insertionResults[1] + insertionNumbers[0];
+            start = System.nanoTime();
+            long[] shellResults = Sorting.shellSort(shellNumbers);
+            end = System.nanoTime();
+            shellTime = shellTime + (end - start);
+            result = shellResults[0] + shellResults[1] + shellNumbers[0];
+        }
+        System.out.println();
+        System.out.println("ACTIVITY 3 - SORTING EXECUTION TIME");
+        System.out.println("Array size: " + numbers.length);
+        System.out.println("Repetitions: " + repetitions);
+        System.out.println();
+        System.out.println("Bubble Sort: " + bubbleTime / (double) repetitions + " ns");
+        System.out.println("Selection Sort: " + selectionTime / (double) repetitions + " ns");
+        System.out.println("Insertion Sort: " + insertionTime / (double) repetitions + " ns");
+        System.out.println("Shell Sort: " + shellTime / (double) repetitions + " ns");
+        System.out.println();
+        System.out.println("AVERAGE EXECUTION TIME IN MILLISECONDS");
+        System.out.println("Bubble Sort: " + bubbleTime / (repetitions * 1000000.0) + " ms");
+        System.out.println("Selection Sort: " + selectionTime / (repetitions * 1000000.0) + " ms");
+        System.out.println("Insertion Sort: " + insertionTime / (repetitions * 1000000.0) + " ms");
+        System.out.println("Shell Sort: " + shellTime / (repetitions * 1000000.0) + " ms");
+        System.out.println();
+        System.out.println("SORTING EXECUTION TIME TEST FINISHED");
     }
 }
