@@ -134,6 +134,16 @@ public class Main {
         printArray(insertionNumbers);
         System.out.println();
         System.out.println("INSERTION SORT TEST FINISHED");
+        System.out.println();
+        System.out.println("SHELL SORT");
+        int[] shellNumbers = {45, 12, 90, 12, 3, 70, 45, 18};
+        System.out.print("Original array: ");
+        printArray(shellNumbers);
+        Sorting.shellSort(shellNumbers);
+        System.out.print("Sorted array: ");
+        printArray(shellNumbers);
+        System.out.println();
+        System.out.println("SHELL SORT TEST FINISHED");
     }
     public static void printArray(int[] numbers) {
         System.out.print("[");

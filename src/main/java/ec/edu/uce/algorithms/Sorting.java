@@ -61,4 +61,28 @@ public class Sorting {
         System.out.println("Comparisons: " + comparisons);
         System.out.println("Movements: " + movements);
     }
+    public static void shellSort(int[] numbers) {
+        int comparisons = 0;
+        int movements = 0;
+        for (int gap = numbers.length / 2; gap > 0; gap = gap / 2) {
+            for (int i = gap; i < numbers.length; i++) {
+                int temp = numbers[i];
+                int j = i;
+                while (j >= gap) {
+                    comparisons = comparisons + 1;
+                    if (numbers[j - gap] > temp) {
+                        numbers[j] = numbers[j - gap];
+                        movements = movements + 1;
+                        j = j - gap;
+                    } else {
+                        break;
+                    }
+                }
+                numbers[j] = temp;
+                movements = movements + 1;
+            }
+        }
+        System.out.println("Comparisons: " + comparisons);
+        System.out.println("Movements: " + movements);
+    }
 }
