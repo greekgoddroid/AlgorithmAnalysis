@@ -220,3 +220,17 @@ Running the program again overwrites the CSV file with new experimental results.
 ## Academic Purpose
 
 This project was developed for educational purposes as part of the Algorithms course at Universidad Central del Ecuador.
+
+## Interactive Presentation
+
+The project includes an interactive web presentation that explains:
+
+- Algorithmic complexity.
+- Iteration and recursion.
+- Sorting algorithm visualizations.
+- Experimental performance comparisons.
+- Analysis of benchmark results.
+
+To open the presentation, launch `presentation/index.html` in any modern web browser.
+
+The presentation uses HTML, CSS, and JavaScript to simulate the algorithms implemented in Java. No additional dependencies or server configuration are required.
