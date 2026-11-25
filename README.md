@@ -183,7 +183,7 @@ The experimental results are available in the following CSV file:
 
 The execution output and reconstructed console images are available in:
 
- [Execution Evidence](Results/captures/README.txt)
+[Execution Evidence](Results/captures/08_final_execution.png)
 
 [Original Execution Log](Results/captures/execution_log.txt)
 
